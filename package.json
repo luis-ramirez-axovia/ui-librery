@@ -1,11 +1,15 @@
 {
-    "name": "libreria_ui",
+    "name": "@luis.axovia/libreria_ui",
     "version": "0.1.0",
     "description": "Prueba Librerio UI para importa componentes",
     "main": "./dist/index.js",
     "scripts": {
         "test": "jest --config ./config/jest.config.js",
-        "build": "NODE_ENV=production && rm -rf ./dist && mkdir dist && npx babel --config-file ./babel.config.js src/ --out-dir dist --copy-files --ignore '**/*.spec.js' --no-copy-ignored"
+        "build": "NODE_ENV=production && rm -rf ./dist && mkdir dist && npx babel --config-file ./babel.config.js src/ --out-dir dist --copy-files --ignore '**/*.spec.js' --no-copy-ignored",
+        "release": "npm run build && npm publish",
+        "release:patch": "npm run patch && npm release",
+        "release:minor": "npm run minor && npm publish",
+        "release:major": "npm run major && npm publish"
     },
     "repository": {
         "type": "git",
@@ -23,6 +27,9 @@
     "homepage": "#",
     "dependencies": {
         "@emotion/css": "^11.10.5"
+    },
+    "publishConfig": {
+        "access": "public"
     },
     "devDependencies": {
         "@babel/cli": "^7.17.6",
