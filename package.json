@@ -1,10 +1,11 @@
 {
     "name": "libreria_ui",
-    "version": "1.0.0",
-    "description": "Libreria UI de componentes",
-    "main": "index.js",
+    "version": "0.1.0",
+    "description": "Prueba Librerio UI para importa componentes",
+    "main": "./dist/index.js",
     "scripts": {
-        "test": "jest --config ./config/jest.config.js"
+        "test": "jest --config ./config/jest.config.js",
+        "build": "NODE_ENV=production && rm -rf ./dist && mkdir dist && npx babel --config-file ./babel.config.js src/ --out-dir dist --copy-files --ignore '**/*.spec.js' --no-copy-ignored"
     },
     "repository": {
         "type": "git",
